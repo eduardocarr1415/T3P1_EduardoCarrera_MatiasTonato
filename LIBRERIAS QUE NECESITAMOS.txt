@@ -1,0 +1,6 @@
+Flask
+Authlib
+bcrypt
+PyMySQL
+python-dotenv
+requests

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ESPE | Seguridad de Software{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="auth-shell">
+        <section class="brand-panel">
+            <div class="brand-content">
+                <div class="logo-box">
+                    <img
+                        class="espe-logo"
+                        src="{{ url_for('static', filename='img/espe-logo.png') }}"
+                        alt="Universidad de las Fuerzas Armadas ESPE"
+                    >
+                </div>
+
+                <div class="brand-copy">
+                    <span class="subject-kicker">Universidad de las Fuerzas Armadas - ESPE</span>
+                    <h1>Ingeniería de la Seguridad de Software</h1>
+                </div>
+
+            </div>
+
+            <div class="brand-decoration brand-decoration-one"></div>
+            <div class="brand-decoration brand-decoration-two"></div>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-wrapper">
+                <div class="mobile-brand">
+                    <img
+                        src="{{ url_for('static', filename='img/espe-logo.png') }}"
+                        alt="Universidad de las Fuerzas Armadas ESPE"
+                    >
+                    <p>Ingeniería de la Seguridad de Software</p>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% for category, message in messages %}
+                        <div class="flash flash-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
